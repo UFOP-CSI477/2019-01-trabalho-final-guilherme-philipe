@@ -48,9 +48,9 @@ Não faz parte do escopo do trabalho uma automatização da obtenção de alguns
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
-Protótipos para as páginas que foram elaboradas, e podem ser encontrados em https://github.com.
+Protótipos para as páginas que foram elaboradas, e podem ser encontrados em https://github.com/UFOP-CSI477/2019-01-trabalho-final-guilherme-philipe/Prototipos.
 
-* Página principal:
+* Página principal
 * Página de cadastro de clientes
 * Página de cadastro de parceiros
 * Tela para cálculo da distância e custo benefício
