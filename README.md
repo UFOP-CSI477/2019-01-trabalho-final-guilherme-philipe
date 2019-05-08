@@ -1,7 +1,7 @@
 # **CSI477-2019-01 - Proposta de Trabalho Final**
 ## *Grupo: Guilherme Afonso & Philipe Pereira*
 
---------------
+<!------TESTE DE COMMIT-------->
 
 <!-- Descrever um resumo sobre o trabalho. -->
 
