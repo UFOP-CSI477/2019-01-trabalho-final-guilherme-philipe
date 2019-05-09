@@ -1,10 +1,230 @@
 <!DOCTYPE html>
 <html lang="br" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  </body>
+  <title>Fuel Management - Cadastro de Cliente</title>
+</head>
+<body>
+
+  <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Fuel Management</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#menuPrincipal" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuPrincipal">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Usuário</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="cadastroCliente.html">Cadastrar</a>
+            <a class="dropdown-item" href="#">Consultar</a>
+            <a class="dropdown-item" href="#">Gerênciar</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown"  href="#">Postos</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="cadastroParceiros.html">Cadastrar</a>
+            <a class="dropdown-item" href="cadastroParceiros.html">Atualizar</a>
+            <a class="dropdown-item" href="cadastroParceiros.html">Gerênciar</a>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </nav>
+  <div class="jumbotron jumbotron-fluid mt-md-5">
+    <div class="container">
+      <h1 class="display-4">Cliente</h1>
+      <h3>Seja bem vindo(a)!</h3>
+      <p class="lead">Cadastre-se a partir do preenchimento do formulário.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <form name="cadastro">
+    <h2>Comece a Efetuar seu cadastro AGORA!</h2>
+    <h5>Passo 1 - Dados Pessoais</h5>
+    <div class="jumbotron row bg-light">
+
+      <div id="grupoCliente1" class="col-3 form-group">
+          <label id="labelCliente" for="nomeCliente">Nome: </label><br/>
+          <input class="form-control form-control" type="text" name="nomeCliente" placeholder="Informe seu nome" autocomplete="off"><br><br>
+          <div id="alertaCliente" style="display:none" class="alert alert-danger">
+            <spam>Preencha o campo nome corretamente!<spam>
+          </div>
+
+          <label id="labelEndereco" for="endereco">Endereço: </label><br/>
+          <input class="form-control form-control" type="text" name="endereco" placeholder="Nome da rua, bairro e nº"><br/><br/>
+          <div id="alertaEndereco" style="display:none" class="alert alert-danger">
+            <spam>Preencha o campo Endereço corretamente!<spam>
+          </div>
+
+          <label id="labelTelefone" for="Telefone">Telefone: </label><br/>
+          <input class="form-control form-control" type="text" name="telefone" placeholder="Ex: (31)9999-9999"><br><br>
+          <div id="alertaTelefone" style="display:none" class="alert alert-danger">
+            <spam>Preencha o campo Telefone corretamente!<spam>
+          </div>
+
+          <p>Email:</p>
+          <label id="labelEmail" class="sr-only">Email</label>
+          <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input type="text" class="form-control" name="email" placeholder="exemplo@exemplo.com">
+          </div><br />
+
+          <label id="labelGenero">Gênero: </label><br/>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="masculino" name="genero" value="M">
+            <label id="labelRad1" class="form-check-label" for="genero">Masculino </label><br/>
+            <input class="form-check-input" type="radio" id="feminino" name="genero" value="F">
+            <label id="labelRad2" class="form-check-label" for="genero">Feminino </label><br/>
+            <input class="form-check-input" type="radio" id="outros" name="genero" value="O">
+            <label id="labelRad3" class="form-check-label"for="genero">Outros </label>
+          </div>
+          <div id="alertaGenero" style="display:none" class="alert alert-danger">
+            <spam>X<spam>
+          </div>
+      </div>
+    </div>
+
+    <h5>Passo 2 - Dados sobre o Veículo</h5>
+    <div class="jumbotron row bg-light">
+      <div class="col-3">
+        <div clas="form-group">
+          <label id="labelModelo" for="modelo">Modelo: </label><br/>
+          <input class="form-control form-control" type="text" name="modelo"
+          placeholder="Ex: Gol 1.0" autocomplete="off"><br>
+
+          <label id="labelFabricante" for="fabricante">Fabricante: </label><br/>
+          <input class="form-control form-control" type="text" name="fabricante"
+          placeholder="Ex: Volkswagen" autocomplete="off"><br>
+
+          <label id="labelCor" for="cor">Cor: </label><br/>
+          <input class="form-control" type="text" name="cor"
+          placeholder="Ex: Vermelho " autocomplete="off"><br />
+
+          <label id="labelSeguro">Possui Seguro? </label><br/>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="masculino" name="seg" value="ss">
+            <label class="form-check-label" for="genero">Sim </label><br/>
+            <input class="form-check-input" type="radio" id="feminino" name="seg" value="nn">
+            <label class="form-check-label" for="genero">Não </label><br/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 ml-5">
+          <div clas="form-group">
+            <label for="placa">Placa: </label><br/>
+            <input class="form-control form-control" type="text" name="placa"
+            placeholder="PLA-0000" autocomplete="off"><br>
+
+            <label for="ano">Ano: </label><br/>
+            <input class="form-control form-control" type="text" name="ano"
+            placeholder="Ex: Gol 1.0" autocomplete="off"><br>
+
+            <label for="fabricante">Chassi: </label><br/>
+            <input class="form-control form-control" type="text" name="chassi"
+            placeholder="9BD12345EC123E" autocomplete="off"><br>
+
+            <label id="labelCor" for="cor">Renavam: </label><br/>
+            <input class="form-control" type="text" name="cor"
+            placeholder="0047234234" autocomplete="off"><br/>
+          </div>
+        </div>
+
+      <div class="col-3 ml-5">
+        <p class="form-group">
+          <label id="labelTipo">Tipo Veículo: </label><br/>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="masculino" name="tipo" value="Mot">
+            <label id="labelRad1" class="form-check-label" for="genero">Moto </label><br/>
+            <input class="form-check-input" type="radio" id="feminino" name="tipo" value="Car">
+            <label id="labelRad2" class="form-check-label" for="genero">Carro </label><br/>
+            <input class="form-check-input" type="radio" id="outros" name="tipo" value="Cam">
+            <label id="labelRad3" class="form-check-label"for="genero">Caminhão </label>
+          </div><br/>
+          <div clas="form-group">
+            <label id="labelConsumo" for="consumo">Consumo: </label><br/>
+            <input class="form-control form-control" type="text" name="consumo"
+            placeholder="Ex: 9.7" autocomplete="off">
+            <small class="text-muted">*Coloque apenas números.</small>
+          </div>
+        </p>
+      </div>
+    </div>
+
+    <h5>Passo 3 - Dados de Pagamento</h5>
+    <div class="jumbotron row bg-light">
+      <div class="col-6">
+        <p class="form-group">
+          <hr>
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="credito" name="paymentMethod" type="radio" class="custom-control-input">
+              <label class="custom-control-label" for="credito">Cartão de crédito</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="debito" name="paymentMethod" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="debito">Cartão de débito</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+              <label class="custom-control-label" for="paypal">PayPal</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="cc-nome">Nome no cartão</label>
+              <input type="text" class="form-control" id="cc-nome" name="ccnome" placeholder="" required="">
+              <small class="text-muted">Nome como mostrado no cartão.</small>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cc-numero">Número do cartão de crédito</label>
+              <input type="text" class="form-control" id="cc-numero">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="cc-expiracao">Data de expiração</label>
+              <input type="text" class="form-control" id="cc-expiracao" placeholder="" required="">
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="cc-cvv"><br>CVV</label>
+              <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+            </div>
+          </div>
+          <hr>
+        </p>
+      </div>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" name="aceite" value="aceite" id="aceite" class="custom-control-input" required="">
+      <label id="labelTermos" for="aceite" class="custom-control-label">ACEITO AS CONDIÇÕES E TERMOS DE USO.</label>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <button class="form-control btn btn-success" onclick="conferirCliente()" type="submit" value="Cadastrar">Cadastrar</button>
+    </div>
+    <br>
+    <button class="form-control btn btn-danger" type="reset" value="Limpar"> Limpar</button><br><br>
+
+    <p>*A segurança dos seus dados é nossa responsabilidade!</p>
+  </form>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 </html>
