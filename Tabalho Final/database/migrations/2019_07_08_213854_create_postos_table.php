@@ -16,11 +16,15 @@ class CreatePostosTable extends Migration
         Schema::create('postos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
+            $table->Unsignedinteger('user_id');
             $table->double('distancia', 8, 2);
             $table->double('pgasolina', 4, 2);
             $table->double('petanol', 4, 2);
             $table->double('pdiesel', 4, 2);
             $table->timestamps();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
         });
     }
 

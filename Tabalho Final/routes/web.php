@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 
 Route::resource('/posto','PostoController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
