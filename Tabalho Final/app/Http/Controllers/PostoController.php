@@ -15,8 +15,12 @@ class PostoController extends Controller
     public function index()
     {
         $postos = Posto::all();
-
-        return view('postos.index')->with('postos', $postos);
+        $mPreco = New Posto();
+        $maxProx = New Posto();
+        return view('postos.index')
+              ->with('postos', $postos)
+              ->with('mPreco', $mPreco)
+              ->with('maxProx', $maxProx);
     }
 
     /**
@@ -86,7 +90,7 @@ class PostoController extends Controller
      */
     public function destroy(Posto $posto)
     {
-        $posto-:delete();
+        $posto->delete();
 
         return redirect()->route('postos.index');
     }
