@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 
 Route::resource('/posto','PostoController');
-
+Route::get('/','PaginasController@index');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

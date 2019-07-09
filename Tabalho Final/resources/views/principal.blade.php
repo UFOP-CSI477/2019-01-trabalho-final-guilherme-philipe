@@ -9,7 +9,7 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <p>ystem  Fuel</p>
+        <p>System  Fuel</p>
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal">
