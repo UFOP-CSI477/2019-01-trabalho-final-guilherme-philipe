@@ -143,9 +143,9 @@
 	    			<div class="row">
 						<div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
 							<form method="POST">
-                                <input class="subemail" name="email" placeholder="Subscribe to our newsletter">
-                                <input type="submit" value="Subscribe" />
-                            </form>
+                <input class="subemail" name="email" placeholder="Subscribe to our newsletter">
+                <input type="submit" value="Subscribe" />
+              </form>
 						</div>
 					</div>
 	    		</div>
