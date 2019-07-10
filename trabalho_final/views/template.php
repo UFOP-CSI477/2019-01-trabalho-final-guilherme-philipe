@@ -156,7 +156,9 @@
 						<div class="col-sm-4">
 							<a href="<?php echo BASE_URL; ?>"><img width="150" src="../assets/images/logo.png" /></a><br/><br/>
 							<strong>Abasteça de forma inteligente!</strong><br/><br/>
-							Endereço da Loja Virtual
+							Nosso Endereço físico.<br>
+						  Faça uma visita!
+							........
 						</div>
 						<div class="col-sm-8 linkgroups">
 							<div class="row">
