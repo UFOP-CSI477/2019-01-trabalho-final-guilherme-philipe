@@ -47,7 +47,7 @@ header {
 	background-image:url('../images/phone.png');
 }
 .head_email {
-	background-image:url('../images/mail.png');
+	background-image:url('../images/phone.png');
 }
 .head_email span {
 	color:#59b210;
@@ -290,6 +290,3 @@ footer h3 {
 .no-padding {
 	padding:0;
 }
-
-
-

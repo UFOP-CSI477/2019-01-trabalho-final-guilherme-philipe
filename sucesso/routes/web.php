@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'PaginasController@index');
+Route::get('/', 'ProductsController@index');
+Route::get('/products/relatorio', 'ProductsController@relatorio')->name('products.relatorio');
+//Route::get('/home', 'PaginasController@home');
+Route::resource('/products','ProductsController');
+Route::resource('/brands','BrandsController');
+Route::resource('/categories','CategoriesController');

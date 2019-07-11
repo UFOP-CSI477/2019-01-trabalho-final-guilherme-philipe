@@ -22,7 +22,7 @@
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="{{route('products.create')}}">Novo Posto</a></li>
-							<li><a href="{{route('products.relatorio')}}">Relatorio Geral</a></li>
+              <li><a href="{{route('products.relatorio')}}">Relatorio Geral</a></li>
 
 						</ul>
 					</li>
@@ -56,7 +56,7 @@
 								<input type="text" name="s" required placeholder="Procure um item" />
 								<select name="category">
 									<option value="">Todas os combustíveis</option>
-									<option value="">Gasolina</option>
+                  <option value="">Gasolina</option>
 									<option value="">Etanol</option>
 									<option value="">Diesel</option>
 									<option value="">GNV</option>
@@ -82,48 +82,58 @@
 			</div>
 		</header>
 		<div class="categoryarea">
-			<nav class="navbar">
+			{{-- <nav class="navbar">
 				<div class="container">
-					<ul class="nav navbar-nav">
-						<li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Selecione um Combustível
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Page 1-1</a></li>
-					          <li><a href="#">Page 1-2</a></li>
-					          <li><a href="#">Page 1-3</a></li>
-					        </ul>
-					      </li>
-						<li><a href="#">Combustível X</a></li>
-					</ul>
-				</div>
-			</nav>
+
+        </div>
+			</nav> --}}
+
+      {{-- Tabela relatório --}}
+
+
+      <table class=" table table-bordered table-hover table-striped">
+        <caption> <h1>Relatório de Postos</h1> </caption>
+        <thead class="thead-dark">
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Nome do Posto</th>
+            <th>Preço antes</th>
+            <th>Preço depois</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{-- {{dd($products)}} --}}
+      @foreach($products as $p)
+        <tr>
+
+          <td>{{$p->id}}</td>
+          <td>{{$p->name}}</td>
+          <td>{{$p->brand->name}}</td>
+          <td>R$ {{$p->price_from}}</td>
+          <td>R$ {{$p->price}}</td>
+          <td><a class="btn btn-success" href="{{ route('products.edit', $p->id) }}">Exibir</a></td>
+          <td><a class="btn btn-danger" href="{{ route('products.destroy', $p->id) }}">Excluir</a></td>
+
+
+        </tr>
+      @endforeach
+      </tbody>
+      </table>
 		</div>
 		<section>
 			<div class="container">
 				<div class="row">
 				  <div class="col-sm-3">
 				  	<aside>
-				  		<h1>Filtro</h1>
-				  		<div class="filterarea">
-
-				  		</div>
-
-				  		<div class="widget">
-				  			<h1> .................
-									<!-- Featured Products -->
-								</h1>
-				  			<div class="widget_body">
-				  				...
-				  			</div>
-				  		</div>
 				  	</aside>
 				  </div>
 				  <div class="col-sm-9">
 						{{------------------CONTEUDO--------------------------------}}
 
 
-						@yield('conteudo')
 
 
 
@@ -137,27 +147,17 @@
 	    		<div class="row">
 				  <div class="col-sm-4">
 				  	<div class="widget">
-			  			<h1> .................
-								<!-- Featured Products -->
-							</h1>
-			  			<div class="widget_body">
-			  				...
-			  			</div>
+
 			  		</div>
 				  </div>
 				  <div class="col-sm-4">
 				  	<div class="widget">
-			  			<h1>Promoções na hora</h1>
-			  			<div class="widget_body">
-			  				...
-			  			</div>
+
 			  		</div>
 				  </div>
 				  <div class="col-sm-4">
 				  	<div class="widget">
-			  			<h1>Mais abastecidos</h1>
-			  			<div class="widget_body">
-			  				...
+
 			  			</div>
 			  		</div>
 				  </div>
@@ -188,32 +188,13 @@
 						<div class="col-sm-8 linkgroups">
 							<div class="row">
 								<div class="col-sm-4">
-									<h3>Acesso por Combustível</h3>
-									<ul>
-										<li><a href="#">Gasolina</a></li>
-										<li><a href="#">Etanol</a></li>
-										<li><a href="#">Diesel</a></li>
-										<li><a href="#">GNV</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-4">
-									<h3>Postos em Alta</h3>
-									<ul>
-										<li><a href="#">PostoArt</a></li>
-										<li><a href="#">Longana</a></li>
-										<li><a href="#">TNE Castelinho</a></li>
-										<li><a href="#">TNE Avenida</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-4">
-									<h3>Informações</h3>
-									<ul>
-										<li><a href="#">Menu 1</a></li>
-										<li><a href="#">Menu 2</a></li>
-										<li><a href="#">Menu 3</a></li>
-										<li><a href="#">Menu 4</a></li>
 
-									</ul>
+								</div>
+								<div class="col-sm-4">
+
+								</div>
+								<div class="col-sm-4">
+
 								</div>
 							</div>
 						</div>
@@ -226,7 +207,7 @@
 						<div class="col-sm-6">© <span>systemFuel</span> - Todos os direitos reservados.</div>
 						<div class="col-sm-6">
 							<div class="payments">
-								<img src="{{asset('images/visa.png')}}" />
+								{{-- <img src="{{asset('images/visa.png')}}" /> --}}
 								<!-- <img src="../assets/images/visa.png" />
 								<img src="../assets/images/visa.png" />
 								<img src="../assets/images/visa.png" /> -->

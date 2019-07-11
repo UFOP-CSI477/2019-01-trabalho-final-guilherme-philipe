@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\Categories;
+use App\Brands;
+use App\Products_images;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -14,8 +18,19 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+      $nome = "Guilherme";
+      $usuario="guilm1";
+      $products = Products::all();
+      // ->join('brands', 'brands.id' , '=', 'products.id_brand')->get()
+      return view('products.index')
+             ->with('nome', $nome)
+             ->with('user', $usuario)
+             ->with('products', $products)
+             ->with('imgs', Products_images::all());
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +39,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create')->with('brands', Brands::all());
     }
 
     /**
@@ -35,7 +50,9 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Products::create($request->all());
+
+      return redirect()->route('products.index');
     }
 
     /**
@@ -44,9 +61,10 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function show(Products $products)
+    public function show($id)
     {
-        //
+        // return view('products.show')->with('products',$products);
+        return view('products.show', ['product' => Products::findOrFail($id)]);
     }
 
     /**
@@ -55,9 +73,10 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $products)
+    public function edit($products)
     {
-        //
+        return view('products.edit', ['product' => Products::findOrFail($products)])
+               ->with('brands', Brands::all());
     }
 
     /**
@@ -67,9 +86,16 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, $id)
     {
-        //
+      $products = Products::findOrFail($id);
+
+        // dd($products);
+        $products->fill($request->all());
+        $products->save();
+
+        return redirect()->route('products.index');
+
     }
 
     /**
@@ -80,6 +106,23 @@ class ProductsController extends Controller
      */
     public function destroy(Products $products)
     {
-        //
+        $products->delete();
+
+        return redirect()->route('products.index');
+
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Products  $products
+     * @return \Illuminate\Http\Response
+     */
+
+    public function relatorio(){
+
+      $products = Products::all();
+      return view('products.relatorio')
+             ->with('products', $products)
+             ->with('imgs', Products_images::all());
     }
 }
