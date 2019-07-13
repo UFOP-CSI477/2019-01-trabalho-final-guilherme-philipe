@@ -36,7 +36,35 @@
 							<li><a href="#">Espanhol</a></li>
 						</ul>
 					</li>
-					<li><a href=" #">Login</a></li>
+					<!-- Authentication Links -->
+					@guest
+							<li class="nav-item">
+									<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+							</li>
+							@if (Route::has('register'))
+									<li class="nav-item">
+											<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+									</li>
+							@endif
+					@else
+							<li class="nav-item dropdown">
+									<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+											{{ Auth::user()->name }} <span class="caret"></span>
+									</a>
+
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+											<a class="" href="{{ route('logout') }}"
+												 onclick="event.preventDefault();
+																			 document.getElementById('logout-form').submit();">
+													{{ __('Logout') }}
+											</a>
+
+											<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+													@csrf
+											</form>
+									</div>
+							</li>
+					@endguest
 				</ul>
 			</div>
 		</nav>
@@ -45,7 +73,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2 logo">
-						<a href="#"><img src="{{asset('images/logo.png')}}" /></a>
+						<a href="/"><img src="{{asset('images/logo.png')}}" /></a>
 					</div>
 					<div class="col-sm-7">
 						{{-- <div class="head_help">0800 3333 3333</div> --}}
@@ -93,12 +121,15 @@
       </div>
       <div class="col-sm-9">
         {{------------------CONTEUDO--------------------------------}}
+          <h1>{{$product->brand->name}}</h1>
+          <img src="{{asset('images/media/'.$product->brand->url)}}" alt="img">
+          <h2>{{$product->name}}</h2>
+          <h2>Valor atual: R${{$product->price}}</h2>
+          <h3>Valor anterior: R${{$product->price_from}}</h3>
+          <h4>Descrição: {{$product->description}}</h4>
 
-          {{$product->name}}
-          {{$product->price}}
-          {{$product->brand->name}}
-
-
+          <a class="btn btn-success"href="{{route('products.index')}}">Voltar</a>
+          {{-- <button type="button" id="tt" name="button" >TT</button> --}}
 
         {{---------------------FIM CONTEUDO-------------------------------------}}
       </div>
@@ -185,5 +216,12 @@
 <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
+
+<script type="text/javascript">
+  $("#tt").click(function(){
+    window.location.replace("{{route('products.index')}}");
+  });
+</script>
+
 </body>
 </html>

@@ -8,6 +8,7 @@ use App\Brands;
 use App\Products_images;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -20,7 +21,7 @@ class ProductsController extends Controller
     {
       $nome = "Guilherme";
       $usuario="guilm1";
-      $products = Products::all();
+      $products = Products::paginate(3);
       // ->join('brands', 'brands.id' , '=', 'products.id_brand')->get()
       return view('products.index')
              ->with('nome', $nome)
@@ -39,7 +40,14 @@ class ProductsController extends Controller
      */
     public function create()
     {
+      if (Auth::check()) {
         return view('products.create')->with('brands', Brands::all());
+
+      }else {
+        return redirect()->route('login');
+      }
+
+
     }
 
     /**
@@ -75,8 +83,15 @@ class ProductsController extends Controller
      */
     public function edit($products)
     {
-        return view('products.edit', ['product' => Products::findOrFail($products)])
-               ->with('brands', Brands::all());
+        if (Auth::check()) {
+          return view('products.edit', ['product' => Products::findOrFail($products)])
+                 ->with('brands', Brands::all());
+        } else {
+
+          return redirect()->route('login');
+
+        }
+
     }
 
     /**
@@ -104,8 +119,10 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Products $products)
+    public function destroy($id)
     {
+        $products = Products::findOrFail($id);
+
         $products->delete();
 
         return redirect()->route('products.index');
@@ -121,8 +138,15 @@ class ProductsController extends Controller
     public function relatorio(){
 
       $products = Products::all();
-      return view('products.relatorio')
-             ->with('products', $products)
-             ->with('imgs', Products_images::all());
+
+      if (Auth::check()) {
+        return view('products.relatorio')
+               ->with('products', $products)
+               ->with('imgs', Products_images::all());
+      } else {
+        return redirect()->route('login');
+      }
+
+
     }
 }

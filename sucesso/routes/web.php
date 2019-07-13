@@ -21,3 +21,11 @@ Route::get('/products/relatorio', 'ProductsController@relatorio')->name('product
 Route::resource('/products','ProductsController');
 Route::resource('/brands','BrandsController');
 Route::resource('/categories','CategoriesController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
